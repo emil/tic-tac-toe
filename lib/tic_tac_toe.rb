@@ -48,9 +48,9 @@ class TicTacToe
     lines = @grid.map do |row|
       row.map {|e| e.nil? ? ' ' : e }.join '|'
     end
-
+    
     line_divider = ['-', '-', '-'].join '+'
-
+    
     [
       lines.first,
       line_divider,
@@ -67,7 +67,7 @@ class TicTacToe
       return false if @grid[i].any? {|e| e.nil?}
     end
     
-    return true
+    true
   end
 
   def horizontal_winner
@@ -91,7 +91,6 @@ class TicTacToe
 
 
   def diagonal_winner
-
     # top/left to right/bottom diagonal
     token_a =
       [
@@ -115,7 +114,7 @@ class TicTacToe
   end
 
   # whether an array is a 'win'
-  # every element is populated wi the the same kind
+  # every element is populated with the the same kind
   def is_win?(a)
     a.all? {|e| !e.nil?} && a.uniq.size == 1
   end
